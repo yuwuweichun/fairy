@@ -1,0 +1,44 @@
+/* 声明字体 */
+@font-face {
+  font-family: 'ZZZ';  /* 定义字体名称 */
+  src: url('/src/assets/zzz.ttf') format('truetype');  /* 指定字体文件路径 */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;  /* 优化字体加载 */
+}
+
+/* 设置全局样式 */
+:root {
+  /* 定义主题色变量 */
+  --bg-color: #010101;
+  /* 添加字体变量 */
+  --primary-font: 'ZZZ', sans-serif;
+  /* 添加字体颜色变量 */
+  --text-color: #FEFEFE;
+  /* 添加字体大小变量 */
+  --font-size-large: 1.4rem;  /* 或者使用具体像素值，如 18px */
+}
+
+/* 设置页面背景色 */
+body {
+  /* 使用背景图片 */
+  background-image: url('/background.png');
+  /* 图片完全覆盖容器 */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /* 添加模糊效果 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari 浏览器支持 */
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  /* 应用字体 */
+  font-family: var(--primary-font);
+  /* 应用字体颜色 */
+  color: var(--text-color);
+  /* 设置字体大小 */
+  font-size: var(--font-size-large);
+  /* 隐藏溢出 */
+  min-height: 100vh;
+  overflow: hidden;
+}
