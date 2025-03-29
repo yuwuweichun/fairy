@@ -1,10 +1,16 @@
 <script setup>
-
+import { ref } from 'vue'
+const inputText = ref('')
 </script>
 
 <template>
     <div class="chat-container">
-        <input type="text" class="chat-input" placeholder="Hi，Fairy">
+        <input 
+            type="text" 
+            class="chat-input" 
+            placeholder="Hi，Fairy" 
+            v-model="inputText" 
+            @keydown.enter="() => { $emit('send-message', inputText); inputText = '' }">
     </div>
 </template>
 

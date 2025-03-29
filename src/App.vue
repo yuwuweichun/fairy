@@ -1,14 +1,14 @@
 <script setup>
-import DialogBox from './components/DialogBox.vue';
-import FilmLeft from './components/FilmLeft.vue';
-import FilmRight from './components/FilmRight.vue';
-import Fairy from './components/Fairy.vue';
-import ButtonBox from './components/ButtonBox.vue';
-import ChatPop from './components/ChatPop.vue';
+import DialogBox from './components/DialogBox.vue'
+import FilmLeft from './components/FilmLeft.vue'
+import FilmRight from './components/FilmRight.vue'
+import Fairy from './components/Fairy.vue'
+import ButtonBox from './components/ButtonBox.vue'
+import ChatPop from './components/ChatPop.vue'
 
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-let isPop = ref(false);
+let isPop = ref(false)
 
 // 键盘监听事件处理 按下ctrl+space时，改变isPop的值
 const handleKeyDown = (event) => {
@@ -17,18 +17,25 @@ const handleKeyDown = (event) => {
     console.log('isPop changed:', isPop.value) // 用于调试
   }
 }
-
 // 添加键盘事件监听器
-window.addEventListener('keydown', handleKeyDown);
+window.addEventListener('keydown', handleKeyDown)
+
+
+// 处理从ChatPop接收到的消息
+const handMessage = (inputText) => {
+    console.log(inputText)
+}
 </script>
 
 <template>
     <div class="film-right">
         <FilmRight />
     </div>
+
     <div class="logo-area">
         <img src="./assets/zzz.svg" alt="zzz-logo" style="width: 50%; height: 50%;">
     </div>
+
     <div class="main-area">
         <div class="button-area">
             <ButtonBox />
@@ -45,16 +52,14 @@ window.addEventListener('keydown', handleKeyDown);
         <FilmLeft />
     </div>
 
-
-    <div class="chat-area" v-if="isPop">
-        <ChatPop/>
+    <div class="chat-area" v-if="isPop"><!-- 输入的文本信息emit -->
+        <ChatPop @send-message="handMessage"/>
     </div>
 </template>
 
 <style scoped>
 .logo-area {
     position: fixed;
-    /* 使用定位和transform实现水平垂直居中 */
     top: 20%;
     left: 15%;
     transform: translate(-50%, -50%);
