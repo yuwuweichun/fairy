@@ -1,10 +1,9 @@
 <script setup>
-
 </script>
 
 <template>
   <div class="fairy-container">
-    
+
     <img src="/fairy_self/layer1.png" alt="Layer 1" class="layer1" />
     
     <img src="/fairy_self/layer2.png" alt="Layer 2" class="layer2" />

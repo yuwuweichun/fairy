@@ -24,18 +24,15 @@ const toggleMusic = () => {
   <div class="music-btn" @click="toggleMusic">
     <p>背景音乐：{{ isPlaying ? '开' : '关' }}</p>
   </div>
-
-  <div class="music-btn" @click="">
-    <p>与Fairy对话</p>
-  </div>
-  
 </template>
 
 <style scoped>
 .music-btn {
   /* 设置合适的宽高 */
-  height: 10vh;
-  width: 15vw;
+  height: 8vh;
+  width: 13vw;
+  /* 字体大小 */
+  font-size: 1.3rem;
   background-image: url('/button.png');
   /* 图片完全覆盖容器 */
   background-size: 100% 100%;

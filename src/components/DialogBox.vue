@@ -6,7 +6,9 @@
 
   <div class="dialog-container">
     <div class="dialog-content">
-      系统启动完成——我是Ⅲ型总序式集成泛用人工智能，开发代号Fairy。你好，主人。
+      系统启动完成——我是Ⅲ型总序式集成泛用人工智能，开发代号Fairy。你好，主人！
+      <br>
+      (主人，按下ctrl+space以唤出Fairy，输入文本后按下enter向Fairy发送消息)
     </div>
   </div>
 
@@ -33,4 +35,5 @@
   /* 始终显示在最上方 */
   z-index: 999;
 }
+
 </style>
