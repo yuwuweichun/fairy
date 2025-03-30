@@ -8,22 +8,67 @@ import ChatPop from './components/ChatPop.vue'
 
 import { ref } from 'vue'
 
+/**
+ * 唤出Fairy
+ */
+
 let isPop = ref(false)
 
 // 键盘监听事件处理 按下ctrl+space时，改变isPop的值
-const handleKeyDown = (event) => {
+window.addEventListener('keydown', (event) => {
   if (event.ctrlKey && event.code === 'Space') {
     isPop.value = !isPop.value
     console.log('isPop changed:', isPop.value) // 用于调试
   }
-}
-// 添加键盘事件监听器
-window.addEventListener('keydown', handleKeyDown)
+})
 
+/**
+ * Fetch
+ */
+
+let chatList = [
+    {
+        role: "system",
+        content: "你是Fairy"
+    }
+]
+
+const sendToFairy = () => {
+    // 动态生成 options（每次请求都用最新 chatList）
+    const dynamicOptions = {
+        method: 'POST',
+        headers: {
+            Authorization: 'Bearer sk-qwsbunhemmmowmuqrmmhsiamcnzyjbpdqlvugkolvtpssnsr',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            model: "THUDM/glm-4-9b-chat",
+            messages: chatList,
+            stream: false,
+            max_tokens: 512,
+            stop: null,
+            temperature: 0.7,
+            top_p: 0.7,
+            top_k: 0.5,
+            frequency_penalty: 0.5,
+            n: 1,
+        })
+    };
+    console.log("dynamicOptions: ", dynamicOptions)
+    fetch('https://api.siliconflow.cn/v1/chat/completions', dynamicOptions)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err))
+}
 
 // 处理从ChatPop接收到的消息
 const handMessage = (inputText) => {
     console.log(inputText)
+    chatList.push({ role: "user", content: inputText });
+    console.log("chatList: ",chatList)
+    sendToFairy()
+    
+
 }
 </script>
 
