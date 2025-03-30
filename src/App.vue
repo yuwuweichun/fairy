@@ -46,12 +46,14 @@ const sendToFairy = () => {
             messages: chatList,
             stream: false,
             max_tokens: 512,
-            stop: null,
             temperature: 0.7,
             top_p: 0.7,
-            top_k: 0.5,
+            top_k: 50,
             frequency_penalty: 0.5,
             n: 1,
+            response_format: {
+                type: "text"
+            }
         })
     };
     console.log("dynamicOptions: ", dynamicOptions)
