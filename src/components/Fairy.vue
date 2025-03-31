@@ -119,7 +119,7 @@
 @keyframes scale8 {
   0% { transform: scale(6.0); opacity: 0; }
   5% { transform: scale(6.0); opacity: 1; }
-  95% { transform: scale(16.0); opacity: 0.2; }
+  95% { transform: scale(16.0); opacity: 0.6; }
   100% { transform: scale(16.0); opacity: 0; }
 }
 

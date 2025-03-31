@@ -10,6 +10,16 @@ import { ref } from 'vue'
 
 import { prompt } from './system'
 /**
+ * output
+ */
+const guidingText = "系统启动完成——我是Ⅲ型总序式集成泛用人工智能，开发代号Fairy。你好，主人！(主人，按下ctrl+space以唤出Fairy，输入文本后按下enter向Fairy发送消息)"
+const rousingText = "你好，主人，有什么可以帮你"
+const loadingText = "Fairy正在以五倍功率思考 loading......"
+let output = ref("")
+output.value = guidingText
+
+
+/**
  * 唤出Fairy
  */
 
@@ -20,13 +30,14 @@ window.addEventListener('keydown', (event) => {
   if (event.ctrlKey && event.code === 'Space') {
     isPop.value = !isPop.value
     console.log('isPop changed:', isPop.value) // 用于调试
+    output.value = rousingText
   }
 })
 
 /**
  * Fetch
  */
-let output = ref('')
+
 
 
 let chatList = [
@@ -64,8 +75,8 @@ const sendToFairy = () => {
         .then(response => response.json()) // response.json()解析后的数据传递给下一个.then()
         .then(response => {
             console.log("response :", response)
-            output = response.choices[0].message.content
-            console.log("output :", output)
+            output.value = response.choices[0].message.content
+            console.log("output.value :", output.value)
             chatList.push( { role: "assistant", content: output})
         })
         .catch(err => console.error(err))
@@ -73,6 +84,8 @@ const sendToFairy = () => {
 
 // 处理从ChatPop接收到的消息
 const handMessage = (inputText) => {
+    // loadingText
+    output.value = loadingText
     console.log(inputText)
     chatList.push({ role: "user", content: inputText })
     console.log("chatList: ",chatList)
@@ -98,7 +111,7 @@ const handMessage = (inputText) => {
             <Fairy />
         </div>
         <div class="dialog-area">
-            <DialogBox />
+            <DialogBox :output="output" />
         </div>
     </div>
 
