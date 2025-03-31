@@ -1,16 +1,56 @@
 <script setup>
-const { output } = defineProps(['output'])
+import { ref, watch, onUnmounted } from 'vue'
+
+const props = defineProps({
+  output: {
+    type: String,
+    required: true
+  }
+})
+
+const displayedText = ref('')
+let intervalId = null
+let currentIndex = 0
+
+// 清除定时器
+const clearTyping = () => {
+  if (intervalId) {
+    clearInterval(intervalId)
+    intervalId = null
+    currentIndex = 0
+  }
+}
+
+// 监听output变化
+watch(() => props.output, (newVal) => {
+  clearTyping()
+  displayedText.value = ''
+  
+  if (newVal) {
+    intervalId = setInterval(() => {
+      if (currentIndex < newVal.length) {
+        displayedText.value += newVal[currentIndex]
+        currentIndex++
+      } else {
+        clearTyping()
+      }
+    }, 50) // 调整这个值控制打字速度（单位：毫秒）
+  }
+}, { immediate: true })
+
+// 组件卸载时清除定时器
+onUnmounted(() => {
+  clearTyping()
+})
 </script>
 
 <template>
-
   <div class="dialog-container">
     <div class="dialog-content">
-      <!-- 保留换行符 -->
-      <span :style="{ whiteSpace: 'pre-wrap' }">{{ output }}</span> 
+      <!-- 显示逐步输出的内容 -->
+      <span :style="{ whiteSpace: 'pre-wrap' }">{{ displayedText }}</span>
     </div>
   </div>
-
 </template>
 
 <style scoped>
