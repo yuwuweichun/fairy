@@ -66,18 +66,20 @@ onUnmounted(() => {
   height: 20vh;
   /* 添加内边距 */
   padding: 20px;
-  /* 居中显示 */
+  /* 显示方向：列 */
   display: flex;
   flex-direction: column;
-  align-items: center;
   /* 始终显示在最上方 */
   z-index: 999;
 }
 .dialog-role {
-  margin-top: -2vh;
+  margin: -1.5vh auto 0 auto;
+  font-size: 1.2rem;
+  padding: 0;
 }
 
 .dialog-content {
-  margin: 4.2rem;
+  margin: auto 4.2rem;
+  padding: 0;
 }
 </style>

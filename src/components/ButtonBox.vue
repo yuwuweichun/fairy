@@ -30,7 +30,7 @@ const toggleMusic = () => {
 .music-btn {
   /* 设置合适的宽高 */
   height: 8vh;
-  width: 13vw;
+  width: 12vw;
   /* 字体大小 */
   font-size: 1.3rem;
   background-image: url('/button.png');
