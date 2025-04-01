@@ -21,6 +21,7 @@ const inputText = ref('')
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .chat-input {
@@ -33,12 +34,18 @@ const inputText = ref('')
     color: #FEFEFE;
     background: transparent;
     outline: none;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
 }
 
 
 /* 聚焦 */
 .chat-input:focus {
-    border-color: #08397A;
+    border: 2px solid rgba(74, 158, 255, 0.3);
     box-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
 }
 </style>
