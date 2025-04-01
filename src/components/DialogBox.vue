@@ -46,6 +46,7 @@ onUnmounted(() => {
 
 <template>
   <div class="dialog-container">
+    <span class="dialog-role">Fairy</span>
     <div class="dialog-content">
       <!-- 显示逐步输出的内容 -->
       <span :style="{ whiteSpace: 'pre-wrap' }">{{ displayedText }}</span>
@@ -67,10 +68,15 @@ onUnmounted(() => {
   padding: 20px;
   /* 居中显示 */
   display: flex;
+  flex-direction: column;
   align-items: center;
   /* 始终显示在最上方 */
   z-index: 999;
 }
+.dialog-role {
+  margin-top: -2vh;
+}
+
 .dialog-content {
   margin: 4.2rem;
 }
