@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './public') // 配置 @ 指向 public 文件夹
+      '@': path.resolve(__dirname, './src')
     }
   }
 })

@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
-
+import bgm from '@/assets/audio/60daily-BGM.mp3';
 // 定义音乐播放状态变量
 const isPlaying = ref(false);
 
 // 创建音频对象
-const audio = new Audio('/60%daily-BGM.mp3');
+const audio = new Audio(bgm);
 // 设置循环播放
 audio.loop = true;
 
@@ -33,7 +33,7 @@ const toggleMusic = () => {
   width: 12vw;
   /* 字体大小 */
   font-size: 1.3rem;
-  background-image: url('/button.png');
+  background-image: url('@/assets/images/button.png');
   /* 图片完全覆盖容器 */
   background-size: 100% 100%;
   background-repeat: no-repeat;

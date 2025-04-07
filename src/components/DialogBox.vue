@@ -57,7 +57,7 @@ onUnmounted(() => {
 <style scoped>
 .dialog-container {
   /* 使用背景图片 */
-  background-image: url('/dialog.png');
+  background-image: url('@/assets/images/dialog.png');
   /* 图片完全覆盖容器 */
   background-size: 100% 100%;  background-repeat: no-repeat;
   /* 设置合适的宽度 */

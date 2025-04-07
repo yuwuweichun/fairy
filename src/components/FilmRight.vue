@@ -1,13 +1,13 @@
 <script setup>
-
+import FilmImage from '@/assets/images/film.png'
 </script>
 
 <template>
   <div class="film-container">
     <div class="film-scroll">
       <!-- 为了实现无缝滚动，需要两张相同的图片 -->
-      <img src="/film.png" alt="Film" />
-      <img src="/film.png" alt="Film" />
+      <img :src= "FilmImage" alt="Film" />
+      <img :src= "FilmImage" alt="Film" />
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 /* 声明字体 */
 @font-face {
   font-family: 'ZZZ';  /* 定义字体名称 */
-  src: url('/src/assets/zzz.ttf') format('truetype');  /* 指定字体文件路径 */
+  src: url('@/assets/font/zzz.ttf') format('truetype');  /* 指定字体文件路径 */
   font-weight: normal;
   font-style: normal;
   font-display: swap;  /* 优化字体加载 */
@@ -22,7 +22,7 @@
 /* 设置页面背景色 */
 body {
   /* 使用背景图片 */
-  background-image: url('/background.png');
+  background-image: url('@/assets/images/background.png');
   /* 图片完全覆盖容器 */
   background-size: 100% 100%;
   background-repeat: no-repeat;

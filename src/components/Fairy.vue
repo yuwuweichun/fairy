@@ -4,21 +4,21 @@
 <template>
   <div class="fairy-container">
 
-    <img src="/fairy_self/layer1.png" alt="Layer 1" class="layer1" />
+    <img src="@/assets/images/layer/layer1.png" alt="Layer 1" class="layer1" />
     
-    <img src="/fairy_self/layer2.png" alt="Layer 2" class="layer2" />
+    <img src="@/assets/images/layer/layer2.png" alt="Layer 2" class="layer2" />
     
-    <img src="/fairy_self/layer3.png" alt="Layer 3" class="layer3" />
+    <img src="@/assets/images/layer/layer3.png" alt="Layer 3" class="layer3" />
     
-    <img src="/fairy_self/layer4.png" alt="Layer 4" class="layer4" />
+    <img src="@/assets/images/layer/layer4.png" alt="Layer 4" class="layer4" />
 
-    <img src="/fairy_self/layer5.png" alt="Layer 5" class="layer5" />
+    <img src="@/assets/images/layer/layer5.png" alt="Layer 5" class="layer5" />
 
-    <img src="/fairy_self/layer6.png" alt="Layer 6" class="layer6" />
+    <img src="@/assets/images/layer/layer6.png" alt="Layer 6" class="layer6" />
 
-    <img src="/fairy_self/layer7.png" alt="Layer 7" class="layer7" />
+    <img src="@/assets/images/layer/layer7.png" alt="Layer 7" class="layer7" />
 
-    <img src="/fairy_self/layer8.png" alt="Layer 8" class="layer8" />
+    <img src="@/assets/images/layer/layer8.png" alt="Layer 8" class="layer8" />
     
   </div>
 </template>

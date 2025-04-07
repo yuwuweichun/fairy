@@ -1,14 +1,16 @@
 <script setup>
-import DialogBox from './components/DialogBox.vue'
-import FilmLeft from './components/FilmLeft.vue'
-import FilmRight from './components/FilmRight.vue'
-import Fairy from './components/Fairy.vue'
-import ButtonBox from './components/ButtonBox.vue'
-import ChatPop from './components/ChatPop.vue'
+import DialogBox from '@/components/DialogBox.vue'
+import FilmLeft from '@/components/FilmLeft.vue'
+import FilmRight from '@/components/FilmRight.vue'
+import Fairy from '@/components/Fairy.vue'
+import ButtonBox from '@/components/ButtonBox.vue'
+import ChatPop from '@/components/ChatPop.vue'
+
+import ZIcon from '@/assets/icon/zzz.svg'
 
 import { ref } from 'vue'
 
-import { prompt, guidingText, rousingText, loadingText } from './system'
+import { prompt, guidingText, rousingText, loadingText, key } from './system'
 /**
  * output
  */
@@ -51,7 +53,7 @@ const sendToFairy = () => {
     const dynamicOptions = {
         method: 'POST',
         headers: {
-            Authorization: 'Bearer sk-qwsbunhemmmowmuqrmmhsiamcnzyjbpdqlvugkolvtpssnsr',
+            Authorization: key,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -99,7 +101,7 @@ const handMessage = (inputText) => {
     </div>
 
     <div class="logo-area">
-        <img src="./assets/zzz.svg" alt="zzz-logo" style="width: 50%; height: 50%;">
+        <img :src="ZIcon" alt="" style="width: 50%;">
     </div>
 
     <div class="main-area">
