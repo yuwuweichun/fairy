@@ -8,13 +8,10 @@ import ChatPop from './components/ChatPop.vue'
 
 import { ref } from 'vue'
 
-import { prompt } from './system'
+import { prompt, guidingText, rousingText, loadingText } from './system'
 /**
  * output
  */
-const guidingText = "系统启动完成——我是Ⅲ型总序式集成泛用人工智能，开发代号Fairy。你好，主人！\n(主人，按下ctrl+space以唤出Fairy，输入文本后按下enter向Fairy发送消息)"
-const rousingText = "你好，主人，有什么Fairy可以帮你?\n···························································································································\n主人，我正处在空闲中，挂机的时候，双倍耗电哦"
-const loadingText = "Fairy正在以五倍耗电模式思考\nloading····················································································································\n主人，你是不是忘记交电费了，切换为正常耗电模式\nloading····················································································································"
 let output = ref("")
 output.value = guidingText
 
@@ -42,9 +39,6 @@ document.addEventListener('click', (event) => {
 /**
  * Fetch
  */
-
-
-
 let chatList = [
     {
         role: "system",
